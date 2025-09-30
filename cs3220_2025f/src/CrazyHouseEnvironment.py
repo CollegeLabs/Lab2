@@ -10,7 +10,7 @@ class CrazyHouseEnvironment(Environment):
                    Room2: random.choice(['Rat', 'Dog', 'Milk', 'Empty']),
                    Room3: random.choice(['Rat', 'Dog', 'Milk', 'Empty']),
                    Room4: random.choice(['Rat', 'Dog', 'Milk', 'Empty']),
-                   Room5: random.choice(['Rat', 'Dog', 'Milk', 'Empty']),}
+                   Room5: random.choice(['Rat', 'Dog', 'Milk', 'Empty'])}
 
   def percept(self, agent):
     #Returns the agent's location, and the location status (Dirty/Clean).
@@ -32,11 +32,29 @@ class CrazyHouseEnvironment(Environment):
         Score 10 for each dirt cleaned; -1 for each move."""
 
         if action == 'Right':
-            agent.location = loc_B
+            if agent.location == Room1:
+                agent.location = Room2
+            elif agent.location == Room2:
+                agent.location = Room3
+            elif agent.location == Room3:
+                agent.location = Room4 
+            elif agent.location == Room4:
+                agent.location = Room5 
+            elif agent.location == Room5:
+                agent.location = Room5  
             agent.performance -= 1
             self.update_agent_alive(agent)
         elif action == 'Left':
-            agent.location = loc_A
+            if agent.location == Room5:
+                agent.location = Room4
+            elif agent.location == Room4:
+                agent.location = Room3
+            elif agent.location == Room3:
+                agent.location = Room2 
+            elif agent.location == Room2:
+                agent.location = Room1 
+            elif agent.location == Room1:
+                agent.location = Room1  
             agent.performance -= 1
             self.update_agent_alive(agent)
         elif action == 'Eat':
