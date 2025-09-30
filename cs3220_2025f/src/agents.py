@@ -12,6 +12,8 @@ from src.rules import table
 def RandomVacuumAgent():
     return Agent(RandomAgentProgram(actionList))
 
+def CatAgent():
+    return Agent(RandomAgentProgram(actionList))
 
 def TableDrivenVacuumAgent():
      return Agent(TableDrivenAgentProgram(table))
