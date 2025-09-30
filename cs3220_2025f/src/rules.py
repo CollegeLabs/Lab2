@@ -1,6 +1,7 @@
 from src.locations import loc_A,loc_B
 
 actionList = ['Right', 'Left', 'Suck', 'NoOp']
+actions = ['Move_Right', 'Move_Left', 'Eat', 'Drink', 'Fight']
 
 table =     {((loc_A, 'Clean'),): 'Right',
              ((loc_A, 'Dirty'),): 'Suck',

@@ -4,6 +4,7 @@ from src.agentClass import Agent
 from src.rules import vacuumRules
 from src.rules import actionList
 from src.rules import table
+from src.rules import actions
 
 
 
@@ -12,8 +13,8 @@ from src.rules import table
 def RandomVacuumAgent():
     return Agent(RandomAgentProgram(actionList))
 
-def CatAgent():
-    return Agent(RandomAgentProgram(actionList))
+def RandomCatAgent():
+    return Agent(RandomAgentProgram(actions))
 
 def TableDrivenVacuumAgent():
      return Agent(TableDrivenAgentProgram(table))

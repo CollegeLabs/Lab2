@@ -17,7 +17,7 @@ class Agent(Thing):
 
     def __init__(self, program=None):
         self.alive = True
-        self.performance = 0
+        self.performance = 4
         self.location=None
 
         if program is None or not isinstance(program, collections.abc.Callable):
