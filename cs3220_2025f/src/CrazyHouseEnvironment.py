@@ -20,7 +20,7 @@ class CrazyHouseEnvironment(Environment):
     return agent.alive
 
   def update_agent_alive(self, agent):
-    if agent.performance <= 0:
+    if agent.performance < 0:
       agent.alive = False
       print("Agent {} is dead.".format(agent))
 
@@ -31,7 +31,7 @@ class CrazyHouseEnvironment(Environment):
         Track performance.
         Score 10 for each dirt cleaned; -1 for each move."""
 
-        if action == 'Right':
+        if action == 'Move_Right':
             if agent.location == Room1:
                 agent.location = Room2
             elif agent.location == Room2:
@@ -44,7 +44,7 @@ class CrazyHouseEnvironment(Environment):
                 agent.location = Room5  
             agent.performance -= 1
             self.update_agent_alive(agent)
-        elif action == 'Left':
+        elif action == 'Move_Left':
             if agent.location == Room5:
                 agent.location = Room4
             elif agent.location == Room4:
