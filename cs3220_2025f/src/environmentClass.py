@@ -63,7 +63,7 @@ class Environment:
       print("Can't add the same agent twice")
     else:
       if isinstance(thing, Agent):
-        thing.performance = 0
+        thing.performance = 3
         thing.location = location if location is not None else self.default_location(thing)
         self.agents.append(thing)
 

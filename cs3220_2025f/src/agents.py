@@ -23,6 +23,6 @@ def ReflexAgent() :
 
 
 def ReflexAgentA2pro():
-    return Agent(ReflexAgentA2pro(a2proRules,interpret_input,rule_match))
+    return Agent(ReflexAgentProgram(a2proRules,interpret_input_A2pro,rule_match_A2pro))
   
 
