@@ -4,6 +4,7 @@ from src.agentClass import Agent
 from src.rules import vacuumRules
 from src.rules import actionList
 from src.rules import table
+from src.rules import a2proRules
 
 
 
@@ -22,7 +23,6 @@ def ReflexAgent() :
 
 
 def ReflexAgentA2pro():
-    pass
-    #your code here
+    return Agent(ReflexAgentA2pro(a2proRules,interpret_input,rule_match))
   
 
