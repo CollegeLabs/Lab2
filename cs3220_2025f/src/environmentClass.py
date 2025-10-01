@@ -36,19 +36,20 @@ class Environment:
                 if agent.alive:
                     #print(self.percept(agent))
                     action=agent.program(self.percept(agent))
-                    print("Agent percepted {}.".format(self.percept(agent)))
-                    print("Agent decided to do {}.".format(action))
+                    print("The Cat percepted {}.".format(self.percept(agent)))
+                    print("The Cat decided to do {}.".format(action))
                     actions.append(action)
                 else:
-                    print("Agent {} is dead.".format(agent))
+                    print("The Cat {} is dead.".format(agent))
                     actions.append("")
             for (agent, action) in zip(self.agents, actions):
                 self.execute_action(agent, action)
+            print("The Cat is in {}.".format(agent.location))
         else:
           print("There is no one here who could work...")
         return actions
 
-  def run(self, steps=10):
+  def run(self, steps=20):
         #Run the Environment for given number of time steps.
         for step in range(steps):
             if self.is_done():
@@ -63,7 +64,7 @@ class Environment:
       print("Can't add the same agent twice")
     else:
       if isinstance(thing, Agent):
-        thing.performance = 0
+        thing.performance = 5
         thing.location = location if location is not None else self.default_location(thing)
         self.agents.append(thing)
 
