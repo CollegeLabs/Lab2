@@ -44,3 +44,25 @@ class CatFriendlyHouseEnvironment(Environment):
                 #    self.update_agent_alive(agent)
             else:
                 agent.performance -= 1
+
+    '''    
+    def rule_match(state, rules):
+        for key in rules:
+            if state in key:
+                return rules[key]
+
+    def SimpleReflexAgentProgram(rules, interpret_input):
+    #This AP takes action based solely on the percept.
+
+        def program(percept):
+            state = interpret_input(percept)
+            rule = rule_match(state, rules)
+            action = rule.action
+            return action
+
+        return program
+    
+    def interpret_input(percept):
+        loc, status = percept
+        return status
+    '''

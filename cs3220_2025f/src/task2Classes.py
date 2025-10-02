@@ -30,3 +30,23 @@ class Cat(Agent):
             self.performance += Milk.returnTotal()
         else:
             self.performance -= 1
+
+    def SimpleReflexAgentProgram(rules, interpret_input):
+    #This AP takes action based solely on the percept.
+
+        def program(self, percept):
+            state = interpret_input(percept)
+            rule = self.rule_match(state, rules)
+            action = rule.action
+            return action
+
+        return program
+    
+    def rule_match(state, rules):
+        for key in rules:
+            if state in key:
+                return rules[key]
+            
+    def interpret_input(percept):
+        loc, status = percept
+        return status
