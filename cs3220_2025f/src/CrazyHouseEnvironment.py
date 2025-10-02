@@ -1,17 +1,12 @@
-from src.environmentClass import Environment
+from src.environmentProClass import environmentPro
 from src.thingClass import Thing
 from src.locations import *
 
 import random
 
-class CrazyHouseEnvironment(Environment):
+class CrazyHouseEnvironment(environmentPro):
   def __init__(self):
     super().__init__()
-    self.status = {Room1: random.choice(['Rat', 'Dog', 'Milk', 'Nothing']),
-                   Room2: random.choice(['Rat', 'Dog', 'Milk', 'Nothing']),
-                   Room3: random.choice(['Rat', 'Dog', 'Milk', 'Nothing']),
-                   Room4: random.choice(['Rat', 'Dog', 'Milk', 'Nothing']),
-                   Room5: random.choice(['Rat', 'Dog', 'Milk', 'Nothing'])}
     self.performace = 5
 
   def percept(self, agent):
@@ -86,5 +81,5 @@ class CrazyHouseEnvironment(Environment):
 
   def default_location(self, thing):
         """Thing start in either location at random."""
-        print("Cat is starting in random location...")
+        print("Thing is starting in random location...")
         return random.choice([Room1, Room2, Room3, Room4, Room5])

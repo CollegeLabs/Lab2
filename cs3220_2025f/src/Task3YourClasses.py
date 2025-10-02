@@ -1,13 +1,13 @@
 from src.thingClass import Thing
 
-class OfficeManager(Thing):
+class Milk(Thing):
   pass
 #you code here
 
-class ITStaff(Thing):
+class Mouse(Thing):
   pass
 #you code here
 
-class Student(Thing):
+class Dog(Thing):
   pass
 #you code here
