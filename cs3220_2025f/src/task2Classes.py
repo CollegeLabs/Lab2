@@ -1,5 +1,6 @@
 import random
 from src.agentClass import Agent
+from src.agentPrograms import TableDrivenAgentProgram
 class Food():
     def __init__(self, weight, calories):
         self.weight = random.random() + 1
@@ -10,43 +11,30 @@ class Food():
 
 class Milk(Food):
     def __init__(self, weight, calories):
-        super().__init__(self, weight, calories)
+        super().__init__(weight, calories)
         self.calories = self.calories * 2
 
 class Sausage(Food):
     def __init__(self, weight, calories):
-        super().__init__(self, weight, calories)
+        super().__init__(weight, calories)
         self.weight = self.weight * 2
         self.calories = self.calories * 3
 
 class Cat(Agent):
-    def __init__(self):
-        super().__init__(self)
+    def __init__(self, table):
+        self.alive = True
+        self.program = TableDrivenAgentProgram(table=table)
+        self.performance = 2
 
-    def consume(self, action, food):
-        if (action == "Eat" & food == "Sausage"):
-            self.performance += Sausage.returnTotal()
-        elif (action == "Drink" & food == "Milk"):
-            self.performance += Milk.returnTotal()
+    def consume(self, food):
+        if (food == "Sausage"):
+            food = Sausage(1, 1)
+            self.performance += food.returnTotal()
+        elif (food == "Milk"):
+            food = Milk(1, 1)
+            self.performance += food.returnTotal()
         else:
             self.performance -= 1
 
-    def SimpleReflexAgentProgram(rules, interpret_input):
-    #This AP takes action based solely on the percept.
-
-        def program(self, percept):
-            state = interpret_input(percept)
-            rule = self.rule_match(state, rules)
-            action = rule.action
-            return action
-
-        return program
-    
-    def rule_match(state, rules):
-        for key in rules:
-            if state in key:
-                return rules[key]
-            
-    def interpret_input(percept):
-        loc, status = percept
-        return status
+    def is_alive(self):
+        return self.alive

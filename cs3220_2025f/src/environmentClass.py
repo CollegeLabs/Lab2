@@ -44,6 +44,7 @@ class Environment:
                     actions.append("")
             for (agent, action) in zip(self.agents, actions):
                 self.execute_action(agent, action)
+            print(agent.performance)
         else:
           print("There is no one here who could work...")
         return actions
