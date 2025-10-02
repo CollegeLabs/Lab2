@@ -1,12 +1,10 @@
 from src.thingClass import Thing
 
 class OfficeManager(Thing):
-  pass
+  Thing.location=None
 
 class ITStaff(Thing):
-  pass
-#you code here
+  Thing.location=None
 
 class Student(Thing):
-  pass
-#you code here
+  Thing.location=None
