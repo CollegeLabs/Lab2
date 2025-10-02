@@ -1,6 +1,7 @@
 from src.environmentProClass import environmentPro
 from src.thingClass import Thing
 from src.locations import *
+from src.Task3YourClasses import Milk, Mouse, Dog
 
 import random
 
@@ -10,8 +11,9 @@ class CrazyHouseEnvironment(environmentPro):
     self.performace = 5
 
   def percept(self, agent):
-    #Returns the agent's location, and the location status (Dirty/Clean).
-    return agent.location, self.status[agent.location]
+    #return a list of things that are in our agent's location
+    things = self.list_things_at(agent.location)
+    return agent.location, things
  
   def is_agent_alive(self, agent):
     return agent.alive
@@ -52,27 +54,30 @@ class CrazyHouseEnvironment(environmentPro):
             agent.performance -= 1
             self.update_agent_alive(agent)
         elif action == 'Eat':
-            if self.status[agent.location] == 'Rat':
+            if self.list_things_at(agent.location, thingClass=Mouse):
+                item = self.list_things_at(agent.location, thingClass=Mouse)
                 if agent.performance >= 3:
                     agent.performance += 10
-                    self.status[agent.location] = 'Nothing'
+                    self.delete_thing(item[0])
                 else:
                     agent.performance -= 1
             else:
                 agent.performance -= 1
             self.update_agent_alive(agent)
         elif action == 'Drink':
-            if self.status[agent.location] == 'Milk':
+            if self.list_things_at(agent.location, thingClass=Milk):
+                item = self.list_things_at(agent.location, thingClass=Milk)
                 agent.performance += 5
-                self.status[agent.location] = 'Nothing'
+                self.delete_thing(item[0])
             else:
                 agent.performance -= 1
             self.update_agent_alive(agent)
         elif action == 'Fight':
-            if self.status[agent.location] == 'Dog':
+            if self.list_things_at(agent.location, thingClass=Dog):
+                item = self.list_things_at(agent.location, thingClass=Dog)
                 if agent.performance >= 10:
                     agent.performance += 20
-                    self.status[agent.location] = 'Nothing'
+                    self.delete_thing(item[0])
                 else:
                     agent.performance -= 10
             else:

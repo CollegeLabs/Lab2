@@ -1,13 +1,13 @@
 from src.thingClass import Thing
 
 class Milk(Thing):
-  pass
+  Thing.location=None 
 #you code here
 
 class Mouse(Thing):
-  pass
+  Thing.location=None 
 #you code here
 
 class Dog(Thing):
-  pass
+  Thing.location=None 
 #you code here
