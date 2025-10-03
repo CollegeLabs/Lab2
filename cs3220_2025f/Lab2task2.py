@@ -27,8 +27,9 @@ feedingRules = {(((0, 0), 'Empty'),): 'Right',
 
 a1=Cat(feedingRules)
 house.add_thing(a1)
-print("State of the Environment: {}.".format(house.status))
-print("Agent is located at {}.".format(a1.location))
+#print("State of the Environment: {}.".format(house.status))
+#print("Agent is located at {}.".format(a1.location))
+#print("Agent performance: {}".format(a1.performance))
 print(house.agents)
 print(house.agents[0].location)
 house.run()

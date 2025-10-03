@@ -4,7 +4,7 @@ A base class representing an abstract Environment.
 The environment keeps a list of .agents.
 Each agent has a .performance slot, initialized to 0.
 '''
-
+import streamlit as st
 from src.agentClass import Agent
 
 class Environment:
@@ -37,16 +37,19 @@ class Environment:
                     #print(self.percept(agent))
                     action=agent.program(self.percept(agent))
                     print("Agent percepted {}.".format(self.percept(agent)))
+                    st.write("Agent percepted {}.".format(self.percept(agent)))
                     print("Agent decided to do {}.".format(action))
+                    st.write("Agent decided to do {}.".format(action))
                     actions.append(action)
                 else:
                     print("Agent {} is dead.".format(agent))
+                    st.write("Agent {} is dead.".format(agent))
                     actions.append("")
             for (agent, action) in zip(self.agents, actions):
                 self.execute_action(agent, action)
-            print(agent.performance)
         else:
           print("There is no one here who could work...")
+          st.write("There is no one here who could work...")
         return actions
 
   def run(self, steps=10):
@@ -54,8 +57,10 @@ class Environment:
         for step in range(steps):
             if self.is_done():
                 print("We can't find a live agent")
+                st.write("We can't find a live agent")
                 return
             print("step {0}:".format(step+1))
+            st.write("step {0}:".format(step+1))
             self.step()
 
   def add_thing(self, thing, location=None):

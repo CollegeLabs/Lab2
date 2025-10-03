@@ -3,7 +3,7 @@ from src.agentClass import Agent
 from src.agentPrograms import TableDrivenAgentProgram
 class Food():
     def __init__(self, weight, calories):
-        self.weight = random.random() + 1
+        self.weight = 2*(random.random()+1)
         self.calories = 1
 
     def returnTotal(self):
@@ -23,8 +23,8 @@ class Sausage(Food):
 class Cat(Agent):
     def __init__(self, table):
         self.alive = True
-        self.program = TableDrivenAgentProgram(table=table)
         self.performance = 2
+        self.program = TableDrivenAgentProgram(table=table)
 
     def consume(self, food):
         if (food == "Sausage"):
