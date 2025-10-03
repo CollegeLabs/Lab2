@@ -65,8 +65,8 @@ class CrazyHouseEnvironment(environmentPro):
                     agent.performance -= 1
             if self.list_things_at(agent.location, thingClass=Milk):
                 item = self.list_things_at(agent.location, thingClass=Milk)
-                print("Crunchy glass yummy")
-                st.write("Crunchy glass yummy")
+                print("Crunchy glass yummy!")
+                st.write("Crunchy glass yummy!")
                 agent.performance -= 1
             else:
                 agent.performance -= 1
