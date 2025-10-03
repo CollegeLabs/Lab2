@@ -38,9 +38,9 @@ class Environment:
                     #print(self.percept(agent))
                     action=agent.program(self.percept(agent))
                     print("Agent percepted {}.".format(self.percept(agent)))
-                    print("Agent decided to do {}.".format(action))
+                    print("Agent decided to {}.".format(action))
                     st.write("Agent percepted {}.".format(self.percept(agent)))
-                    st.write("Agent decided to do {}.".format(action))
+                    st.write("Agent decided to {}.".format(action))
 
                     actions.append(action)
                 else:
