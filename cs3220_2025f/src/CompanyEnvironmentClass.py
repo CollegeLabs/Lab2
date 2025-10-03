@@ -2,6 +2,7 @@ import random
 from src.environmentProClass import environmentPro
 from src.thingClass import Thing
 from src.locations import *
+import streamlit as st
 
 
 class CompanyEnvironment(environmentPro):
@@ -11,6 +12,7 @@ class CompanyEnvironment(environmentPro):
 
   def default_location(self, thing):
     print("The item is starting in random location...")
+    st.write("The item is starting in random location...")
     return random.choice(self.locations)
 
   def percept(self, agent):
@@ -27,29 +29,34 @@ class CompanyEnvironment(environmentPro):
         agent.performance -= 1
         self.update_agent_alive(agent)
         print("The Agent decided to {} at location: {}".format(action,agent.location))
+        st.write("The Agent decided to {} at location: {}".format(action,agent.location))
       elif action=='Give mail':
         items = self.list_things_at(agent.location, thingClass=OfficeManager)
         agent.performance += 3
         self.update_agent_alive(agent)
         print("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
+        st.write("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
         self.delete_thing(items[0])
       elif action=='Give donuts':
         items = self.list_things_at(agent.location, thingClass=ITStaff)
         agent.performance += 3
         self.update_agent_alive(agent)
         print("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
+        st.write("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
         self.delete_thing(items[0])
       elif action=='Give donuts':
         items = self.list_things_at(agent.location, thingClass=ITStaff)
         agent.performance += 3
         self.update_agent_alive(agent)
         print("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
+        st.write("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
         self.delete_thing(items[0])
       elif action=='Give pizza':
         items = self.list_things_at(agent.location, thingClass=Student)
         agent.performance += 3
         self.update_agent_alive(agent)
         print("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
+        st.write("The Agent decided to {} to {} at location: {}".format(action,items[0],agent.location))
         self.delete_thing(items[0])
       elif action=='Stop':
         agent.alive=False
