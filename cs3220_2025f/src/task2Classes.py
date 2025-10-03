@@ -12,13 +12,12 @@ class Food():
 class Milk(Food):
     def __init__(self, weight, calories):
         super().__init__(weight, calories)
-        self.calories = self.calories * 2
+        self.calories = self.calories
 
 class Sausage(Food):
     def __init__(self, weight, calories):
         super().__init__(weight, calories)
-        self.weight = self.weight * 2
-        self.calories = self.calories * 3
+        self.calories = self.calories * 2
 
 class Cat(Agent):
     def __init__(self, table):
