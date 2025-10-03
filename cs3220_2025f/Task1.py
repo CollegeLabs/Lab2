@@ -1,5 +1,6 @@
 import random
 import collections
+import streamlit as st
 from src.locations import *
 from src.thingClass import Thing
 from src.agentClass import Agent
@@ -36,7 +37,7 @@ if Milk.location == Mouse.location:
     House.delete_thing(Milk)
 
 House.add_thing(Cat)
-print("Cat is located at {}.".format(Cat.location))
+st.write("Cat is located at {}.".format(Cat.location))
 
 House.run()
 
