@@ -1,4 +1,5 @@
 from src.environmentProClass import environmentPro
+import streamlit as st
 from src.thingClass import Thing
 from src.locations import *
 from src.Task3YourClasses import Milk, Mouse, Dog
@@ -22,6 +23,7 @@ class CrazyHouseEnvironment(environmentPro):
     if agent.performance < 0:
       agent.alive = False
       print("The Cat {} is dead.".format(agent))
+      st.write("The Cat {} is dead.".format(agent))
 
   def execute_action(self, agent, action):
     '''Check if agent alive, if so, execute action'''

@@ -6,6 +6,7 @@ Each agent has a .performance slot, initialized to 0.
 '''
 
 from src.agentClass import Agent
+import streamlit as st
 
 class Environment:
   def __init__(self):
@@ -37,14 +38,18 @@ class Environment:
                     #print(self.percept(agent))
                     action=agent.program(self.percept(agent))
                     print("The Cat percepted {}.".format(self.percept(agent)))
+                    st.write("The Cat percepted {}.".format(self.percept(agent)))
                     print("The Cat decided to do {}.".format(action))
+                    st.write("The Cat decided to do {}.".format(action))
                     actions.append(action)
                 else:
                     print("The Cat {} is dead.".format(agent))
+                    st.write("The Cat {} is dead.".format(agent))
                     actions.append("")
             for (agent, action) in zip(self.agents, actions):
                 self.execute_action(agent, action)
             print("The Cat is in {}.".format(agent.location))
+            st.write("The Cat is in {}.".format(agent.location))
         else:
           print("There is no one here who could work...")
         return actions
@@ -54,8 +59,10 @@ class Environment:
         for step in range(steps):
             if self.is_done():
                 print("We can't find a live agent")
+                st.write("We can't find a live agent")
                 return
             print("step {0}:".format(step+1))
+            st.write("step {0}:".format(step+1))
             self.step()
 
   def add_thing(self, thing, location=None):
